@@ -1,4 +1,1 @@
-dfw-mail
-========
-
-DETAIL Framework library for mailing
+# DETAIL Framework library for mailing
