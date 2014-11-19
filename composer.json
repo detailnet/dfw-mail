@@ -1,0 +1,52 @@
+{
+    "name": "detailnet/dfw-mail",
+    "description": "DETAIL Framework library for mailing",
+    "type": "library",
+    "keywords": [
+        "dfw",
+        "detailnet",
+        "mail"
+    ],
+    "homepage": "https://github.com/detailnet/dfw-mail/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan Wolf",
+            "email": "ivan.wolf@detailnet.ch"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zend-eventmanager": "2.*",
+        "mtymek/mt-mail": "~1.0",
+        "rhumsaa/uuid": "~2.7",
+        "detailnet/dfw-core": "dev-master",
+        "detailnet/dfw-log": "dev-master",
+        "detailnet/bernard-module": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.3.5"
+    },
+    "autoload": {
+        "psr-0": {
+            "Detail\\Mail\\": "src/",
+            "DetailTest\\Mail\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "!vendor",
+            "tests",
+            "*phpunit.xml",
+            ".travis.yml",
+            "build.xml",
+            "build.properties",
+            "composer.phar"
+        ]
+    }
+}

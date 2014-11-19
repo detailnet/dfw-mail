@@ -5,7 +5,7 @@ namespace Detail\Mail\Service;
 use Detail\Mail\Message\MessageFactoryInterface;
 use Detail\Mail\Message\MessageInterface;
 
-use Zend\EventManager\EventManagerAwareInterface;
+//use Zend\EventManager\EventManagerAwareInterface;
 use Zend\EventManager\EventManagerAwareTrait;
 
 abstract class AbstractMailer implements
