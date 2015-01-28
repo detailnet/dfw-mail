@@ -7,8 +7,8 @@ use Detail\Mail\Message\MessageInterface;
 
 use MtMail\Service\Mail as MtMail;
 
-class MtMailDriver
-    implements DriverInterface
+class MtMailDriver implements
+    DriverInterface
 {
     /**
      * @var MtMail
@@ -51,7 +51,9 @@ class MtMailDriver
     {
         $template = sprintf('%s/%s.phtml', $this->getTemplatePath(), $message->getName());
         $message = $this->mtMail->compose(
-            $message->getHeaders(), $template, $message->getVariables()
+            $message->getHeaders(),
+            $template,
+            $message->getVariables()
         );
 
         $this->mtMail->send($message);

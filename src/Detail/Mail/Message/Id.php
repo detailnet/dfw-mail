@@ -24,7 +24,9 @@ final class Id
             // 32-bit system, or it can, but it relies on Moontoast\Math to be present.
             // See https://github.com/ramsey/uuid#requirements
             throw new RuntimeException(
-                sprintf('Failed to create message ID: %s', $e->getMessage()), 0, $e
+                sprintf('Failed to create message ID: %s', $e->getMessage()),
+                0,
+                $e
             );
         }
 

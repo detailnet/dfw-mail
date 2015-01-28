@@ -6,8 +6,8 @@ use Detail\Bernard\Message\Messenger;
 use Detail\Mail\Driver\DriverInterface;
 use Detail\Mail\Message\MessageInterface;
 
-class BernardDriver
-    implements DriverInterface
+class BernardDriver implements
+    DriverInterface
 {
     /**
      * @var Messenger
@@ -51,6 +51,10 @@ class BernardDriver
         $this->queueName = $queueName;
     }
 
+    /**
+     * @param Messenger $messenger
+     * @param string $queueName
+     */
     public function __construct(Messenger $messenger, $queueName = null)
     {
         $this->setMessenger($messenger);

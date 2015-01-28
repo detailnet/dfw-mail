@@ -5,8 +5,6 @@ namespace Detail\Mail\Listener;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\EventInterface;
 
-
-
 use Detail\Mail\Message\MessageInterface;
 use Detail\Mail\Service\SimpleMailer;
 
@@ -30,33 +28,34 @@ class LoggingListener extends AbstractListener
         $this->attachEvent($events, $mailerId, 'send.post', 'onAfterSimpleMailerSend');
     }
 
-    public function onBeforeSimpleMailerSend(EventInterface $e)
+    public function onBeforeSimpleMailerSend(EventInterface $event)
     {
     }
 
-    public function onAfterSimpleMailerSend(EventInterface $e)
+    public function onAfterSimpleMailerSend(EventInterface $event)
     {
         /** @var \Detail\Mail\Service\MailerInterface $mailer */
-        $mailer = $e->getTarget();
-        $message = $e->getParam('message');
+        $mailer = $event->getTarget();
+        $message = $event->getParam('message');
 
         if ($message === null) {
             throw new RuntimeException(
-                sprintf('Event "%s" is missing param "message"', $e->getName())
+                sprintf('Event "%s" is missing param "message"', $event->getName())
             );
-        } else if (!$message instanceof MessageInterface) {
+        } elseif (!$message instanceof MessageInterface) {
             throw new RuntimeException(
                 sprintf(
                     'Event "%s" has invalid value for param "message"; ' .
                     'expected Detail\Mail\Message\MessageInterface object but got ' .
                     is_object($message) ? get_class($message) : gettype($message),
-                    $e->getName()
+                    $event->getName()
                 )
             );
         }
 
         $headersText = preg_replace(
-            '/\s+/', ' ',
+            '/\s+/',
+            ' ',
             str_replace(PHP_EOL, ' ', var_export($message->getHeaders(), true))
         );
 

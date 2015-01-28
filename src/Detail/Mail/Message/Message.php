@@ -4,8 +4,8 @@ namespace Detail\Mail\Message;
 
 use InvalidArgumentException;
 
-class Message
-    implements MessageInterface
+class Message implements
+    MessageInterface
 {
     /**
      * @var Id
@@ -86,7 +86,7 @@ class Message
     {
         if (is_string($id)) {
             $id = new Id($id);
-        } else if (!$id instanceof Id) {
+        } elseif (!$id instanceof Id) {
             throw new InvalidArgumentException(
                 sprintf(
                     'Provided ID must be a string or Detail\Mail\Message\Id object; %s given',
